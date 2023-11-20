@@ -1,0 +1,13 @@
+.filterLabel{
+
+    color: #5F9025;
+    font-weight:600;
+}
+.filterInput{
+    border-radius:5px;
+    border: 1px solid black;
+    margin-bottom: 15px;
+    height: 20px;
+    float: right;
+    padding: 0px 15px;
+}
