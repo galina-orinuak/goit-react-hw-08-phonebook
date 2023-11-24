@@ -1,27 +1,28 @@
-import { Filter } from './Filter/Filter';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { useDispatch,  useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
-import { getContactsThunks } from 'redux/operations';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
+import { Contacts } from './Pages/Contacts';
+import { Home } from './Pages/Home';
+import { Login } from './Pages/Login';
+import { Register } from './Pages/Register';
+import { currentUserThunk } from 'redux/AuthOperations';
+import { getAuth } from 'redux/selectors';
+import { Layout } from './Layout/Layout';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
+
 
 export const App = () => {
-
+  const { isLoading } = useSelector(getAuth);
   const dispatch = useDispatch();
-  const { items, isLoading, error } = useSelector(getContacts);
   useEffect(() => {
-    dispatch(getContactsThunks());
+    dispatch(currentUserThunk());
   }, [dispatch]);
-
-
-
-
 
   return (
     <div
       style={{
-        width: '400px',
+        width: "auto",
         margin: '1rem',
         marginBottom: '15px',
         padding: '10px',
@@ -30,11 +31,29 @@ export const App = () => {
         boxShadow: '0px 5px 10px rgba(0, 0, 0, 0.1)',
       }}
     >
-      <ContactForm />
-      {items.length === 0 ? <span>There are no contacts</span> : <Filter />}
-      {isLoading === true && <span>Updating, please wait...</span>}
-      <ContactList />
-      {error !== null && <span>Oops, please try again</span>}
+      {isLoading && <div>Loading...</div>}
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute component={Register} redirectTo="/contacts" />
+            }
+          />
+          <Route
+            path="contacts"
+            element={<PrivateRoute component={Contacts} redirectTo="/login" />}
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute component={Login} redirectTo="/contacts" />
+            }
+          />
+          <Route path="*" element={<Navigate to="/" replace={true} />}></Route>
+        </Route>
+      </Routes>
     </div>
   );
 };

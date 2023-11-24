@@ -4,11 +4,12 @@ import styles from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 
-import { addContactsThunks } from 'redux/operations'; 
+
+import { addContactsThunks } from 'redux/operations';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const {items} = useSelector(getContacts);
+  const { items } = useSelector(getContacts);
 
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -51,7 +52,8 @@ export const ContactForm = () => {
 
   return (
     <div>
-      <h2>Phone Book</h2>
+
+      <h2>PHONE BOOK</h2>
       <form
         className={styles.contactForm}
         autoComplete="off"
@@ -90,4 +92,3 @@ export const ContactForm = () => {
     </div>
   );
 };
-

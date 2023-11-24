@@ -1,0 +1,52 @@
+.list {
+  list-style: none;
+  display: flex;
+  gap: 70px;
+  
+}
+
+.itemLink {
+  text-decoration: none;
+  color: white;
+}
+
+.item{
+    background-color: black;
+    font-size: 30px;
+border-radius: 5px;
+padding: 2px 5px 5px 5px;
+border: solid;
+}
+
+.header {
+  height: 200px;
+  background-image: url('img/istock_145914335.06596112057.original-scaled.jpg');
+  background-size: contain;
+  background-position: top;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.list_item{
+   
+    background-color: black;
+    font-size: 30px;
+border-radius: 5px;
+padding: 5px;
+border: solid;
+
+
+}
+
+.phoneIcon{
+    color:  white;
+    position: relative;
+bottom: -7px;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}

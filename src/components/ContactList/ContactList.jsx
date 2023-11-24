@@ -4,7 +4,7 @@ import { RiDeleteBin6Line } from 'react-icons/ri';
 import { deleteContactsThunks } from 'redux/operations';
 import { getFilterValue, getContacts } from 'redux/selectors';
 
-export const ContactItem = ({contact}) => {
+export const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
 
   return (
@@ -21,30 +21,22 @@ export const ContactItem = ({contact}) => {
 };
 
 export const ContactList = () => {
+  const { items } = useSelector(getContacts);
 
-  const {items} = useSelector(getContacts);
-
-  console.log(items);
- 
   const searchContacts = useSelector(getFilterValue);
 
   const filterContacts = items.filter(contact =>
     contact.name.toLowerCase().includes(searchContacts.toLowerCase().trim())
   );
 
-  
-
   return (
     <>
       <h2>Contacts</h2>
       <ul className={styles.contactList}>
         {filterContacts.map(contact => (
-
           <ContactItem key={contact.id} contact={contact} />
         ))}
       </ul>
     </>
   );
 };
-
-
