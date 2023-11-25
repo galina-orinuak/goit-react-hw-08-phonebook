@@ -7,7 +7,7 @@ import { Suspense } from 'react';
 import { GiRotaryPhone } from 'react-icons/gi';
 
 
-export const Layout =()=>{
+const Layout =()=>{
     const { isLoggedIn } = useSelector(getAuth);
 
     return (
@@ -21,7 +21,7 @@ export const Layout =()=>{
         </li>
         {isLoggedIn && (
               <li className={styles.nav_item}>
-                <NavLink to="/contacts">Contacts</NavLink>
+                <NavLink to="/contacts"className={styles.nav_item_link}>Contacts</NavLink>
               </li>
             )}
     </ul>
@@ -29,7 +29,7 @@ export const Layout =()=>{
     {isLoggedIn ? (
           <UserMenu />
         ) : (
-          <ul className={styles.list}>
+          <ul className={styles.list_right}>
             <li className={styles.list_item}>
               <NavLink  className={styles.itemLink} to="/register">Register</NavLink>
             </li>
@@ -47,3 +47,5 @@ export const Layout =()=>{
         </div>
     )
 }
+
+export default Layout;

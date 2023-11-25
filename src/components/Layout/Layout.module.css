@@ -1,8 +1,9 @@
 .list {
   list-style: none;
+  padding-left: 10px;
   display: flex;
-  gap: 70px;
-  
+  flex-direction: row;
+  gap: 5px;
 }
 
 .itemLink {
@@ -10,16 +11,16 @@
   color: white;
 }
 
-.item{
-    background-color: black;
-    font-size: 30px;
-border-radius: 5px;
-padding: 2px 5px 5px 5px;
-border: solid;
+.item {
+  background-color: black;
+  font-size: 20px;
+  border-radius: 5px;
+
+  border: solid;
 }
 
 .header {
-  height: 200px;
+  height: 100px;
   background-image: url('img/istock_145914335.06596112057.original-scaled.jpg');
   background-size: contain;
   background-position: top;
@@ -27,26 +28,39 @@ border: solid;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
+.list_item {
+  background-color: black;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 2px;
+  border: solid;
+}
 
-.list_item{
-   
-    background-color: black;
-    font-size: 30px;
-border-radius: 5px;
-padding: 5px;
-border: solid;
+.phoneIcon {
+  color: white;
+  position: relative;
+  bottom: -3px;
+  margin-right: 5px;
+}
 
+.nav_item {
+  background-color: black;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 2px;
+  border: solid;
 
 }
 
-.phoneIcon{
-    color:  white;
-    position: relative;
-bottom: -7px;
-    width: 40px;
-    height: 40px;
-    margin-right: 5px;
+.list_right {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: 10px;
 }
+.nav_item_link{text-decoration: none;  color: white;
+padding: auto;}

@@ -1,22 +1,23 @@
-.userMenu{
-    width: 400px;
-    padding: 10px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-    border-color: black;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-top: 30px;
-    gap: 15px;
+.userMenu {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  gap: 7px;
+  padding: 7px;
+  font-weight: 700;
 }
 
-.btn{
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-    width: 120px;
-    padding: 5px;
-    margin: auto;
-}  
+.btn {
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  width: 120px;
+  padding: 5px;
+  margin: auto;
+}
+
+.userText {
+  margin: auto;
+  font-size: 15px;
+  color: red;
+}

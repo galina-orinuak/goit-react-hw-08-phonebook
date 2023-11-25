@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { Contacts } from './Pages/Contacts';
-import { Home } from './Pages/Home';
-import { Login } from './Pages/Login';
-import { Register } from './Pages/Register';
+import  Contacts from './Pages/Contacts';
+import Home  from './Pages/Home';
+import  Login  from './Pages/Login';
+import Register  from './Pages/Register';
 import { currentUserThunk } from 'redux/AuthOperations';
 import { getAuth } from 'redux/selectors';
-import { Layout } from './Layout/Layout';
+import  Layout  from './Layout/Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 
@@ -22,8 +22,8 @@ export const App = () => {
   return (
     <div
       style={{
-        width: "auto",
-        margin: '1rem',
+        width: "1200px",
+        margin: 'auto',
         marginBottom: '15px',
         padding: '10px',
         borderRadius: '10px',

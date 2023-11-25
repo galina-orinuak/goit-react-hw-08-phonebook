@@ -3,6 +3,7 @@ import styles from './ContactList.module.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import { deleteContactsThunks } from 'redux/operations';
 import { getFilterValue, getContacts } from 'redux/selectors';
+import { Filter } from 'components/Filter/Filter';
 
 export const ContactItem = ({ contact }) => {
   const dispatch = useDispatch();
@@ -29,9 +30,12 @@ export const ContactList = () => {
     contact.name.toLowerCase().includes(searchContacts.toLowerCase().trim())
   );
 
+  
+
   return (
     <>
       <h2>Contacts</h2>
+      <Filter/>
       <ul className={styles.contactList}>
         {filterContacts.map(contact => (
           <ContactItem key={contact.id} contact={contact} />

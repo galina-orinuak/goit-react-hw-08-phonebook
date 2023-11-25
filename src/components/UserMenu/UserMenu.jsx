@@ -11,9 +11,9 @@ export const UserMenu = () => {
       };
       return (
         <div className={styles.userMenu}>
-        <p className={styles.userText}>{user.name}</p>
+        <p className={styles.userText}>Welcome, {user.name.toUpperCase()}</p>
         <button className={styles.btn} type='button' onClick={handleClick}>
-            LOGOUT
+            Logout
         </button>
         </div>
       )

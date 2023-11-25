@@ -7,17 +7,15 @@ export const LoginForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const user = {
-      email: evt.target.elements.email.value,
-      password: evt.target.elements.password.value,
-    };
+    const form = evt.currentTarget;
 
-    dispatch(loginThunk(user))
-      .unwrap()
-      .then(() => {
-        evt.target.reset();
+    dispatch(
+      loginThunk({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
       })
-      .catch(() => alert(`Incorrect login or password. Try again`));
+    );
+    form.reset();
   };
 
   return (
@@ -42,7 +40,7 @@ export const LoginForm = () => {
           minLength="8"
         />
       </label>
-      <button type="button" className={styles.btn}>
+      <button type="submit" className={styles.btn}>
         Login
       </button>
     </form>

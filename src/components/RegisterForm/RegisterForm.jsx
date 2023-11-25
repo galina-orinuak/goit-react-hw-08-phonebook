@@ -7,18 +7,15 @@ export const RegisterForm = () => {
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    const newUser = {
-      name: evt.target.elements.name.value,
-      email: evt.target.elements.email.value,
-      password: evt.target.elements.password.value,
-    };
-
-    dispatch(registerThunk(newUser))
-      .unwrap()
-      .then(() => {
-        evt.target.reset();
-      })
-      .catch(() => alert(`Incorrect login or password. Try again`));
+    const form = evt.currentTarget;
+    dispatch(
+        registerThunk({
+          name: form.elements.name.value,
+          email: form.elements.email.value,
+          password: form.elements.password.value,
+        })
+      );
+      form.reset();
   };
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
@@ -53,7 +50,7 @@ export const RegisterForm = () => {
           minLength="8"
         />
       </label>
-      <button type='button' className={styles.btn}>Sign Up</button>
+      <button type='submit' className={styles.btn}>Sign Up</button>
     </form>
   );
 };
